@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Virtual_Art_Gallery.Models;
+﻿using System.Data.SqlClient;
+using System.Net;
+using static VirtualArtGalleryTests.DBUtilityTests;
+using static VirtualArtGalleryTests.VirtualArtGalleryImpl;
 
-namespace Virtual_Art_Gallery.Data
+namespace VirtualArtGalleryTests
 {
     internal interface IVirtualArtGallery
     {
-        bool AddArtwork(Artwork1 artwork);
-        bool UpdateArtwork(Artwork1 artwork);
+        bool AddArtwork(ArtworkManagement artwork);
+        void GetArtworkById(int artworkId);
+        bool GetArtworkById(ArtworkManagement artwork);
         bool RemoveArtwork(int artworkId);
-        Artwork1 GetArtworkById(int artworkId);
-        List<Artwork1> SearchArtworks(string keyword);
-
-        bool AddArtworkToFavorite(int userId, int artworkId);
-        bool RemoveArtworkFromFavorite(int userId, int artworkId);
-        List<Artwork1> GetUserFavoriteArtworks(int userId);
+        List<ArtworkManagement> SearchArtworks(string keyword);
+        bool UpdateArtwork(ArtworkManagement artwork);
     }
 }
